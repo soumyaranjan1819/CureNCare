@@ -37,10 +37,10 @@ const Modal: React.FC<ModalProps> = ({
   extraLinkAction
 }) => {
   if (!show) return null;
-  
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      {/* Background overlay */}
+      {/* Background blure effect*/}
       <div className="absolute inset-0 bg-black opacity-50" onClick={onClose}></div>
 
       {/* Modal container */}
@@ -67,13 +67,12 @@ const Modal: React.FC<ModalProps> = ({
               />
             </div>
           ))}
-          {/* Submit button */}
           <button type="submit" className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
             {submitLabel}
           </button>
         </form>
 
-        {/* Extra link (e.g., Forgot Password) */}
+        {/* Extra link */}
         {extraLinkText && (
           <div className="mt-3 text-center">
             <button onClick={extraLinkAction} className="text-sm text-blue-500 hover:underline">
@@ -82,7 +81,7 @@ const Modal: React.FC<ModalProps> = ({
           </div>
         )}
 
-        {/* Footer link (e.g., Sign Up / Log In) */}
+        {/* Footer link */}
         {footerText && footerLinkText && (
           <div className="mt-4 text-center">
             <span className="text-sm text-gray-700">{footerText} </span>
