@@ -1,19 +1,27 @@
 import React, { useState } from "react";
-import CreateAccountModal from "./CreateAccount";
+import CreateAccountModal from "./CreateAccountModal";
 import LoginModal from "./LogIn";
+import ForgotPasswordModal from "./ForgotPasswordModal";
 
 const LoginButton: React.FC = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [createAccountModalOpen, setCreateAccountModalOpen] = useState(false);
+  const [forgotPasswordModalOpen, setForgotPasswordModalOpen] = useState(false);
 
   const showCreateAccountModal = () => {
-    setCreateAccountModalOpen(true);
     setLoginModalOpen(false);
+    setCreateAccountModalOpen(true);
   };
   const showLoginModal = () => {
-    setLoginModalOpen(true);
     setCreateAccountModalOpen(false);
+    setForgotPasswordModalOpen(false)
+    setLoginModalOpen(true);
   };
+
+  const showForgotPasswordModal = () => {
+    setLoginModalOpen(false);
+    setForgotPasswordModalOpen(true)
+  }
 
   return (
     <>
@@ -27,11 +35,17 @@ const LoginButton: React.FC = () => {
         show={loginModalOpen}
         createAccountModalOpen={showCreateAccountModal}
         onClose={() => setLoginModalOpen(false)}
+        forgotPasswordModalOpen={showForgotPasswordModal}
       />
       <CreateAccountModal
         show={createAccountModalOpen}
         loginModalOpen={showLoginModal}
         onClose={() => setCreateAccountModalOpen(false)}
+      />
+      <ForgotPasswordModal
+        show={forgotPasswordModalOpen}
+        onClose={() => setForgotPasswordModalOpen(false)}
+        loginModalOpen={showLoginModal}
       />
     </>
   );
