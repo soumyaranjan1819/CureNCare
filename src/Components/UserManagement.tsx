@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CreateAccountModal from "./CreateAccountModal";
-import LoginModal from "./LogIn";
-import ForgotPasswordModal from "./ForgotPasswordModal";
+import CreateAccountModal from "./modals/CreateAccountModal";
+import LoginModal from "./modals/LogInModal";
+import ForgotPasswordModal from "./modals/ForgotPasswordModal";
 
 const LoginButton: React.FC = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -27,7 +27,7 @@ const LoginButton: React.FC = () => {
     <>
       <button
         onClick={() => setLoginModalOpen(true)}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="px-4 py-2 text-blue-500 text:bg-blue-600"
       >
         Login
       </button>
